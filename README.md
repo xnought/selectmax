@@ -1,6 +1,6 @@
 # `symax`
 
-Symmetric selection of values in attention.
+Symmetric selection of values in attention that is not shift invariant. (this is an experiment)
 
 Inspired this one dudes tweet on why softmax is giving weirdness in attention
 
@@ -44,10 +44,9 @@ With a default of $\eta=1$ (not shown)
 
 $$\text{SymAttention}\left(Q, K, V\right) = \text{symax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
 
-
 ## TODO
 
-- Train a model with `SymAttention` and see what kind of values I get!
-- Compare with regular `Attention` and with a modified $\text{softmax}_1$ version too
+-   Train a model with `SymAttention` and see what kind of values I get!
+-   Compare with regular `Attention` and with a modified $\text{softmax}_1$ version too
 
 Test performance too!
