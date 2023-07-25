@@ -24,6 +24,7 @@ $$\text{symax}(x, \eta)_i = \frac{|x_i|}{\eta + {\sum | x_j |}}$$
 
 -   Where |s| represents the absolute value of a number s. I guess you could interpret this as the $||x_i||_1^1$ (1-norm) so you could extend this to other norms probably.
 -   Where $\eta$ is a scalar number that defaults to 1, (so the limit at infinities goes to 0) or learnable parameter (haven't tested this).
+-   Note this is not a probability distribution since sum < 1
 
 (also begs the question if other norms would be more favorable and what type of behavior you might get)
 
