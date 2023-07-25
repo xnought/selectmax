@@ -20,9 +20,9 @@ Intuitively, why not make this symmetric by taking the `abs` instead of exponent
 
 Then, the attention mechanism would be sensitive to values in either direction and still have a limit that is favorable to extremities
 
-$$\text{symax}(x_i, \eta) = \frac{|x_i|}{\eta + {\sum | x_j |}}$$
+$$\text{symax}(x, \eta)_i = \frac{|x_i|}{\eta + {\sum | x_j |}}$$
 
--   Where |x| represents the absolute value of a number x. I guess you could interpret this as the $||x||_1^1$ (1-norm) so you could extend this to other norms probably.
+-   Where |s| represents the absolute value of a number s. I guess you could interpret this as the $||x_i||_1^1$ (1-norm) so you could extend this to other norms probably.
 -   Where $\eta$ is a scalar number that defaults to 1, (so the limit at infinities goes to 0) or learnable parameter (haven't tested this).
 
 (also begs the question if other norms would be more favorable and what type of behavior you might get)
