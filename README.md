@@ -1,6 +1,6 @@
 # `symax`
 
-Symmetric selection of values in attention that is not shift invariant. (this is an experiment)
+Symmetric selection of values in attention that is not shift invariant. (this is an experiment) If I'm not using softmax for probabilties, why would I care about shift invariance? That's one assumption. The other came from this Evan Miller dude which is that the limits don't go to one for extreme values for softmax which creates issues.
 
 Inspired this one dudes tweet on why softmax is giving weirdness in attention
 
