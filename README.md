@@ -33,17 +33,9 @@ def symax(x: tensor, eta=1, dim=0):
     return sizes / (eta + sizes.sum(dim=dim))
 ```
 
-## The limit at infinites and at 0 of `symax`
+## Limits
 
-Since there is an absolute value, I can just get the limit at infinity
-
-$$
-\begin{align}
-	\lim_{\{x_1, \dots, x_n\} \rightarrow \infty} \text{symax}(x, 1)_i
-	 &= \lim_{\{x_1, \dots, x_n\} \rightarrow \infty} \frac{|x_i|}{1 + \sum_{j=1}^n | x_j |}\\
-&= 0
-\end{align}
-$$
+For all values in $x$ towards either infinity tends towards $0$.
 
 ## Sym Attention
 
