@@ -43,3 +43,11 @@ For resonable computable large values, if all the $x$s are extreme, will tend to
 With a default of $\eta=1$ (not shown)
 
 $$\text{SymAttention}\left(Q, K, V\right) = \text{symax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
+
+
+## TODO
+
+- Train a model with `SymAttention` and see what kind of values I get!
+- Compare with regular `Attention` and with a modified $\text{softmax}_1$ version too
+
+Test performance too!
