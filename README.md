@@ -35,7 +35,7 @@ def symax(x: tensor, eta=1, dim=0):
 
 ## Limits
 
-For all values in $x$ towards either infinity tends towards $0$.
+For resonable computable large values, if all the $x$s are extreme, will tend towards 0. For example all values in $x$ are very very negative, will tend, symax will tend towards 0.
 
 ## Sym Attention
 
