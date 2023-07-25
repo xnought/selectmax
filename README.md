@@ -10,6 +10,8 @@ In the case where the query and key shouldn't weigh any values, what do you do? 
 
 The dude thinks a +1 fixes a lot of this in softmax.
 
+https://www.evanmiller.org/attention-is-off-by-one.html
+
 ## What else
 
 Are there any other formulations that don't use softmax at all?
