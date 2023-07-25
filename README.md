@@ -1,4 +1,6 @@
-# selectmax
+# `symax`
+
+Symmetric selection of values in attention.
 
 Inspired this one dudes tweet on why softmax is giving weirdness in attention
 
@@ -12,6 +14,39 @@ The dude thinks a +1 fixes a lot of this in softmax.
 
 https://www.evanmiller.org/attention-is-off-by-one.html
 
-## What else
+## Why not just remove e at this point
 
-Are there any other formulations that don't use softmax at all?
+Intuitively, why not make this symmetric by taking the `abs` instead of exponentiating the vector for softmax?
+
+Then, the attention mechanism would be sensitive to values in either direction and still have a limit that is favorable to extremities
+
+$$\text{symax}(x_i, \eta) = \frac{|x_i|}{\eta + \sum_{j=1}^n | x_j |}$$
+
+-   Where |x| represents the absolute value of a number x. I guess you could interpret this as the $||x||_1^1$ (1-norm) so you could extend this to other norms probably.
+-   Where $\eta$ is a scalar number that defaults to 1, (so the limit at infinities goes to 0) or learnable parameter (haven't tested this).
+
+(also begs the question if other norms would be more favorable and what type of behavior you might get)
+
+```python
+def symax(x: tensor, eta=1, dim=0):
+    sizes = torch.abs(x)
+    return sizes / (eta + sizes.sum(dim=dim))
+```
+
+## The limit at infinites and at 0 of `symax`
+
+Since there is an absolute value, I can just get the limit at infinity
+
+$$
+\begin{align}
+	\lim_{\{x_1, \dots, x_n\} \rightarrow \infty} \text{symax}(x, 1)_i
+	 &= \lim_{\{x_1, \dots, x_n\} \rightarrow \infty} \frac{|x_i|}{1 + \sum_{j=1}^n | x_j |}\\
+&= 0
+\end{align}
+$$
+
+## Sym Attention
+
+With a default of $\eta=1$ (not shown)
+
+$$\text{symax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
