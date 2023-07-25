@@ -4,7 +4,7 @@ Symmetric selection of values in attention.
 
 Inspired this one dudes tweet on why softmax is giving weirdness in attention
 
-$$\text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
+$$\text{Attention}\left(Q, K, V\right) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
 
 In summary, the fact that you need to choose between discrete entities into a probability forces you to weigh stuff high even if it isn't pertinent.
 
@@ -49,4 +49,4 @@ $$
 
 With a default of $\eta=1$ (not shown)
 
-$$\text{symax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
+$$\text{SymAttention}\left(Q, K, V\right) = \text{symax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
